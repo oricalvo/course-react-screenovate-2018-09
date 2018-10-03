@@ -1,0 +1,19 @@
+.GroupList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.item {
+  padding: 1em 0.5em;
+
+  &:hover {
+    background-color: lightblue;
+    cursor: pointer;
+    color: white;
+  }
+
+  &.selected {
+    background-color: blue;
+  }
+}
