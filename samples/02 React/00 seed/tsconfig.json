@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "module": "es2015",
+    "target": "es2017",
+    "sourceMap": true,
+    "outDir": "./app_out",
+    "jsx": "react",
+    "moduleResolution": "node"
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "files": [
+    "app/main.tsx",
+    "app/globals.d.ts"
+  ]
+}
