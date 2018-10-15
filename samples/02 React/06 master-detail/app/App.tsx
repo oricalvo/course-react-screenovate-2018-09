@@ -43,7 +43,7 @@ export class App extends React.Component<{}, AppState> {
     render() {
         console.log("App.render");
 
-        return <div className="App">
+        return <div className={styles.App}>
             <h1 className={styles.header}>Hello React</h1>
 
             <div className={styles.content}>

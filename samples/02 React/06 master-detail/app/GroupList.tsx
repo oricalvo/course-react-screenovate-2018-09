@@ -16,6 +16,8 @@ export class GroupList extends React.Component<GroupListProps, {}> {
     }
 
     render() {
+
+
         return <ul className={classNames(styles.GroupList,this.props.className)}>
             {
                 this.props.groups.map((g,index) => <li key={index}

@@ -2,6 +2,10 @@
   list-style: none;
   padding: 0;
   margin: 0;
+
+  .btn {
+    background-color: red;
+  }
 }
 
 .item {
@@ -15,5 +19,8 @@
 
   &.selected {
     background-color: blue;
+    color: white;
+
   }
 }
+

@@ -1,34 +1,37 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const {HotModuleReplacementPlugin} = require("webpack");
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const cssLoader = {
     loader: 'css-loader',
     options: {
         modules: true,
-        localIdentName: '[name]_[local]--[hash:base64:5]',
-        camelCase: true,
     }
 };
 
+const tsLoader = {
+    loader: "awesome-typescript-loader",
+    options: {
+        configFileName: "tsconfig.prod.json"
+    }
+}
+
 module.exports = {
-    mode: "development",
+    mode: "production",
     entry: './app/main.tsx',
     resolve: {
         extensions: [".tsx", ".ts", '.js']
     },
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'dist'),
-        publicPath: '/', //must be set, else, historyApiFallback does not work for nested route
+        path: path.resolve(__dirname, 'dist')
     },
-    devtool: "source-map",
     module: {
         rules: [
             {
                 test: /\.tsx?$/,
                 use: [
-                    "awesome-typescript-loader"
+                    tsLoader
                 ]
             },
             {
@@ -52,10 +55,10 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: "./index.html"
         }),
-        // new HotModuleReplacementPlugin(),
     ],
-    devServer: {
-        // hot: true,
-        historyApiFallback: true,
+    optimization: {
+        minimizer: [new UglifyJsPlugin({
+            extractComments: true
+        })]
     }
 };

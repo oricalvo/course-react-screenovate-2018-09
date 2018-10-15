@@ -18,6 +18,7 @@ export class ContactList extends React.Component<ContactListProps, {}> {
             {
                 this.props.contacts.map((c,index) => <li key={index} className={styles.contact}>
                     <span>{c.name}</span>
+                    <button>Blabla</button>
                 </li>)
             }
         </ul>
